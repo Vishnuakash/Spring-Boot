@@ -1,0 +1,8 @@
+This we can do with the help of @ConditionalPrpoperty annotation.
+
+By using @ConditionalPrpoperty annotation we can create beans based on conditions 
+which are required in our application. For Ex - For test env and prod env we need to 
+initialize different beans.
+
+Let we are migrating our DB from MySQl to NoSQl. So in this case once our DB is 
+migrated then we don't need MySQLConnection object in our application.

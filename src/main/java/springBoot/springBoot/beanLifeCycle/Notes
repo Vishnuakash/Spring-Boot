@@ -1,0 +1,39 @@
+@Component, @Configuration, @service, @Repository, @Controller all internally tell the spring to create bean and manage it.
+
+@Component tells the spring that you have to manage this class or bean.
+
+@Autowire tells the spring to resolve and add this object dependency.
+
+@SpringBootApplication, @Configuration, @Service, @#repository, @Controller these internally contains @Component.  
+
+How Spring boot find these beans ??Using @ComponentScan Annotation.it will scan the specified package and sub package for class 
+annotated with @SpringBootApplication, @Configuration, @Service, @#repository, @Controller e.t.c.
+
+At what time these beans created ??
+Eager initialization and Lazy initialization.
+
+Eager initialization -> Some beans get's created at startup / bootstrap of application. For ex - Bean with singleton scope 
+eagerly initialized.
+
+Lazy initialization -> These beans created when they actually needed. For ex - Bean with scope like Prototype or @Lazy annotation
+lazily initialized.
+
+First app started then IOC started and then IOC look for bean and it will construct the bean of those classes which are annotated
+with @Componenet, @Service with eager initialization.
+
+Life cycle of bean
+  Application started 
+          |
+  IOC Container started
+          |
+  Construct Bean(For all classes annotated with @SpringBootApplication, @Configuration, @Service, @#repository, @Controller)
+          |
+  Inject the dependency in constructed bean
+          |
+  @PostConstruct
+          |
+  Use the bean
+          |
+  @PreDestroy
+          |
+  Bean Destroy                                                        
